@@ -1,0 +1,40 @@
+package org.example.Functional;
+
+import lombok.extern.slf4j.Slf4j;
+import org.example.FinanceCalculate.CreditCalculate;
+import org.example.FinanceCalculate.DepositCalculate;
+import org.example.Keyboard.MenuButton;
+import org.example.Keyboard.MenuMoneyButton;
+import org.example.Keyboard.SiteButton;
+import org.example.Keyboard.StartKeyboard;
+import org.example.Log.Logger;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Update;
+
+@Slf4j
+public class CheckingTextFunctional {
+    public static void check(Update update, SendMessage message, long chatId) {
+        String messageText = update.getMessage().getText();
+        chatId = update.getMessage().getChatId();
+        Logger.logAccept(update, chatId);
+
+        message.setChatId(String.valueOf(chatId));
+
+        if (messageText.equals("/start")) {
+            StartKeyboard.startKeybord(message, chatId);
+        } else if (messageText.equalsIgnoreCase("Открой сайт")) {
+            SiteButton.siteButton(message, chatId);
+        } else if (messageText.equalsIgnoreCase("Меню")) {
+            MenuButton.menuButton(message, chatId);
+        }else if (messageText.equalsIgnoreCase("Финансы")){
+            MenuMoneyButton.menuOpen(message, chatId);
+        }else if(messageText.startsWith("/creditCalculate")) {
+            CreditCalculate.result(update,message, chatId);
+        } else if (messageText.startsWith("/depositCalculate")) {
+            DepositCalculate.result(update,message, chatId);
+        }else {
+            message.setText("Вы написали:\n *** \n" + messageText + "\n *** ");
+            Logger.logSend(message,chatId);
+        }
+    }
+}
