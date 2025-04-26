@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JAR_FILE="target/JavaBot-Start-1.0-SNAPSHOT.jar"
+JAR_FILE="target/JavaBot-Start-1.0-SNAPSHOT-jar-with-dependencies.jar"
 LOG_FILE="output.log"
 PID_FILE="java-bot.pid"
 
