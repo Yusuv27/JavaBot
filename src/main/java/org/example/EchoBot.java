@@ -44,6 +44,7 @@ public class EchoBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "7561474100:AAE0ElzuOEVOnjjI9pl1R61Ig6lFmFMgt8s"; // Укажите токен вашего бота
+//        return "7561474100:AAE0ElzuOEVOnjjI9pl1R61Ig6lFmFMgt8s"; // Укажите токен вашего бота
+          return "8044252151:AAE7telpertmz4iPyCf7D6mjuvR_tIRRTWk";
     }
 }

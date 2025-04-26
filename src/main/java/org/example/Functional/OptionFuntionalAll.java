@@ -1,18 +1,32 @@
 package org.example.Functional;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.Functional.News.MediaMetricsParser;
+import org.example.Functional.News.NewsFetcher;
+import org.example.Functional.Translate.Translate;
 import org.example.Log.Logger;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import javax.net.ssl.HttpsURLConnection;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import static org.example.enumOption.OptionEnum.GET_TIME;
 import static org.example.enumOption.OptionEnum.UNKNOW;
 
+
+
 @Slf4j
 public class OptionFuntionalAll {
+
+    private static int i = 0;
+
     public static void joinFuntionalAll(Update update, SendMessage message, long chatId) {
         try {
             String callbackData = update.getCallbackQuery().getData();
@@ -28,12 +42,31 @@ public class OptionFuntionalAll {
                 Logger.logSend(message,chatId);
 
             } else if (callbackData.equals(UNKNOW.getName())) {
-                message.setText("Для данной кнопки нет реализации");
+                NewsFetcher newsFetcher = new NewsFetcher();
+//                String news = newsFetcher.fetchNews();
+//                String news = MediaMetricsParser.fetchLinks();
+//                news = limitStringLength(news, 3000);
+
+//                log.info(news);
+
+
+//                message.setText(news);
+                message.setText("Нет доступного функционала");
+
                 Logger.logSend(message,chatId);
             }
         } catch (Exception e) {
             log.error("Ошибка на стороне OptionFuntionalAll", e);
             e.printStackTrace();
         }
+    }
+
+
+
+    public static String limitStringLength(String str, int maxLength) {
+        if (str.length() > maxLength) {
+            return str.substring(0, maxLength); // Добавление "..." для обозначения, что строка была обрезана
+        }
+        return str;
     }
 }

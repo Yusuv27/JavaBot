@@ -21,12 +21,15 @@ public class StartKeyboard {
         KeyboardRow row = new KeyboardRow();
         KeyboardRow row1 = new KeyboardRow();
         KeyboardRow row2 = new KeyboardRow();
-        row.add("Открой сайт");
-        row1.add("Финансы");
-        row2.add("Меню");
+        KeyboardRow row3 = new KeyboardRow();
+        row.add("Новости");
+        row1.add("Открой сайт");
+        row2.add("Финансы");
+        row3.add("Меню");
         keyboard.add(row);
         keyboard.add(row1);
         keyboard.add(row2);
+        keyboard.add(row3);
         replyKeyboardMarkup.setKeyboard(keyboard);
         message.setReplyMarkup(replyKeyboardMarkup);
 

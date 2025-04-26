@@ -3,10 +3,7 @@ package org.example.Functional;
 import lombok.extern.slf4j.Slf4j;
 import org.example.FinanceCalculate.CreditCalculate;
 import org.example.FinanceCalculate.DepositCalculate;
-import org.example.Keyboard.MenuButton;
-import org.example.Keyboard.MenuMoneyButton;
-import org.example.Keyboard.SiteButton;
-import org.example.Keyboard.StartKeyboard;
+import org.example.Keyboard.*;
 import org.example.Log.Logger;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -22,6 +19,8 @@ public class CheckingTextFunctional {
 
         if (messageText.equals("/start")) {
             StartKeyboard.startKeybord(message, chatId);
+        } else if (messageText.equalsIgnoreCase("Новости")) {
+            NewsButton.send(message, chatId);
         } else if (messageText.equalsIgnoreCase("Открой сайт")) {
             SiteButton.siteButton(message, chatId);
         } else if (messageText.equalsIgnoreCase("Меню")) {
