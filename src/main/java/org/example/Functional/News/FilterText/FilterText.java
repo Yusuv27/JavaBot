@@ -3,7 +3,7 @@ package org.example.Functional.News.FilterText;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.example.Functional.News.FilterText.ContentSmile.*;
+import static org.example.enumOption.ContentSmile.*;
 
 public class FilterText {
 

@@ -22,10 +22,10 @@ public class StartKeyboard {
         KeyboardRow row1 = new KeyboardRow();
         KeyboardRow row2 = new KeyboardRow();
         KeyboardRow row3 = new KeyboardRow();
-        row.add("Новости");
-        row1.add("Открой сайт");
-        row2.add("Финансы");
-        row3.add("Меню");
+        row.add("Новости\uD83C\uDF0D");
+        row1.add("Валюта\uD83D\uDCCA");
+        row2.add("Финансы\uD83D\uDCB0");
+        row3.add("Открой сайт");
         keyboard.add(row);
         keyboard.add(row1);
         keyboard.add(row2);

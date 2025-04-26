@@ -19,13 +19,15 @@ public class CheckingTextFunctional {
 
         if (messageText.equals("/start")) {
             StartKeyboard.startKeybord(message, chatId);
-        } else if (messageText.equalsIgnoreCase("Новости")) {
+        } else if (messageText.equalsIgnoreCase("Новости\uD83C\uDF0D")) {
             NewsButton.send(message, chatId);
         } else if (messageText.equalsIgnoreCase("Открой сайт")) {
             SiteButton.siteButton(message, chatId);
         } else if (messageText.equalsIgnoreCase("Меню")) {
             MenuButton.menuButton(message, chatId);
-        }else if (messageText.equalsIgnoreCase("Финансы")){
+        }else if (messageText.equalsIgnoreCase("Валюта\uD83D\uDCCA")){
+            CurrencyButton.send(message, chatId);
+        }else if (messageText.equalsIgnoreCase("Финансы\uD83D\uDCB0")){
             MenuMoneyButton.menuOpen(message, chatId);
         }else if(messageText.startsWith("/creditCalculate")) {
             CreditCalculate.result(update,message, chatId);

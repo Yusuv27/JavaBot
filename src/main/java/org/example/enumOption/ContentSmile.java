@@ -1,10 +1,12 @@
-package org.example.Functional.News.FilterText;
+package org.example.enumOption;
 
 public enum ContentSmile {
     RUSSIASMILE("\uD83C\uDDF7\uD83C\uDDFA"),
+    CHINASMILE("\uD83C\uDDE8\uD83C\uDDF3"),
     IRANSMILE("\uD83C\uDDF9\uD83C\uDDEF"),
     USASMILE("\uD83C\uDDFA\uD83C\uDDF8"),
     BRITANIASMILE("\uD83C\uDDEC\uD83C\uDDE7"),
+    EUROSMILE("\uD83C\uDDEA\uD83C\uDDFA"),
     UKRAINSMILE("\uD83C\uDDFA\uD83C\uDDE6");
 
     private final String name;

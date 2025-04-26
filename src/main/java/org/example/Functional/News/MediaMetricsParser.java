@@ -1,6 +1,7 @@
 package org.example.Functional.News;
 
 import org.example.Functional.News.FilterText.FilterText;
+import org.example.Functional.ToolsString.ToolsString;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,7 +19,6 @@ public class MediaMetricsParser {
             // Отправляем GET-запрос и получаем HTML-документ
             Document doc = Jsoup.connect(URL).get();
 
-            // Используем селектор для поиска всех <article> элементов
             Elements articles = doc.select("main div.layout div.rubric section.main.grid div.rubric_lenta article.uho.rubric_lenta__item.js-article");
 
             // Проходим по всем найденным элементам <article>
@@ -41,15 +41,8 @@ public class MediaMetricsParser {
         }
         String resultText = "Источник: Лента, газета Коммерсант\n\n" + FilterText.filterMediaMetricsParser(newsLinks.toString());
 
-        resultText = limitStringLength(resultText, 3000);
+        resultText = ToolsString.limitStringLength(resultText, 3000);
 
         return resultText;
-    }
-
-    public static String limitStringLength(String str, int maxLength) {
-        if (str.length() > maxLength) {
-            return str.substring(0, maxLength); // Добавление "..." для обозначения, что строка была обрезана
-        }
-        return str;
     }
 }
