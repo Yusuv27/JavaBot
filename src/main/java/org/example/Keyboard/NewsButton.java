@@ -8,6 +8,7 @@ public class NewsButton {
     public static void send(SendMessage message, long chatId) {
         String news = MediaMetricsParser.fetchLinks();
         message.setText(news);
+        message.setParseMode("Markdown");
         Logger.logSend(message, chatId);
     }
 }

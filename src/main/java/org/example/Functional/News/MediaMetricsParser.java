@@ -18,16 +18,22 @@ public class MediaMetricsParser {
             // Отправляем GET-запрос и получаем HTML-документ
             Document doc = Jsoup.connect(URL).get();
 
-            // Используем селектор для поиска всех <a> внутри .rs-link,
-            // находящихся внутри нужной секции
-            Elements links = doc.select("main div.layout div.rubric section.main.grid div.rubric_lenta article.uho.rubric_lenta__item.js-article div.uho__text.rubric_lenta__item_text h2.uho__name.rubric_lenta__item_name");
-//            System.out.printf(links.toString());
+            // Используем селектор для поиска всех <article> элементов
+            Elements articles = doc.select("main div.layout div.rubric section.main.grid div.rubric_lenta article.uho.rubric_lenta__item.js-article");
 
-            // Проходим по всем найденным элементам <a>
-            for (Element link : links) {
-                String linkText = link.text(); // Получаем текст ссылки
-                String linkHref = link.attr("href"); // Получаем адрес ссылки
-                newsLinks.append(linkText).append(" - ").append(linkHref).append("\n"); // Формируем вывод
+            // Проходим по всем найденным элементам <article>
+            for (Element article : articles) {
+                // Получаем текст ссылки
+                String linkText = article.select("h2.uho__name.rubric_lenta__item_name").text();
+
+                // Здесь указываем путь к элементу времени
+                String timeElementPath = "p.uho__tag.rubric_lenta__item_tag.hide_desktop"; // Замените на ваш селектор для времени, например "time или ".time"
+
+                // Получаем время публикации
+                String timeText = article.select(timeElementPath).text();
+
+                // Формируем вывод с временем и ссылкой
+                newsLinks.append("*").append(timeText).append("* \n").append(linkText).append(" - ").append("\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

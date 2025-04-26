@@ -32,7 +32,8 @@ public class CheckingTextFunctional {
         } else if (messageText.startsWith("/depositCalculate")) {
             DepositCalculate.result(update,message, chatId);
         }else {
-            message.setText("Вы написали:\n *** \n" + messageText + "\n *** ");
+            message.setText("Вы написали:\n ``` \n" + messageText + "\n ``` ");
+            message.setParseMode("Markdown");
             Logger.logSend(message,chatId);
         }
     }
