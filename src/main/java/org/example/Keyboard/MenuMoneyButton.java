@@ -19,7 +19,7 @@ public class MenuMoneyButton {
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
 
         List<InlineKeyboardButton> row1 = new ArrayList<>();
-        row1.add(createInlineButton("Подсчитать кредит", CREDIT_CALCULATE.getName()));
+        row1.add(createInlineButton("Посчитать кредит", CREDIT_CALCULATE.getName()));
         rowsInline.add(row1);
 
         List<InlineKeyboardButton> row2 = new ArrayList<>();
@@ -28,7 +28,6 @@ public class MenuMoneyButton {
 
         inlineKeyboardMarkup.setKeyboard(rowsInline);
         message.setReplyMarkup(inlineKeyboardMarkup);
-
         Logger.logSend(message, chatId);
     }
 

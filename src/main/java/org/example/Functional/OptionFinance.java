@@ -23,7 +23,7 @@ public class OptionFinance {
                 Logger.logSend(message,chatId);
 
             } else if (callbackData.equals(DEPOSIT_CALCULATE.getName())) {
-                message.setText("введите сумму вклада, процент и число месяцев (например, /depositCalculate 1000000 5 3).");
+                message.setText("Введите сумму вклада, процент и число месяцев (например, /depositCalculate 1000000 5 3).");
                 Logger.logSend(message,chatId);
             }
         } catch (Exception e) {

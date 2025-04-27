@@ -20,7 +20,15 @@ public class CurrencyParset {
         try {
             Document doc = Jsoup.connect(URL).get();
 
-            Elements articles = doc.select("main.home-content div.offsetMenu div.container-fluid div.col-md-23.offset-md-1 div.home-main div.home-main_aside div.home-main_sticky div.main-indicator div.main-indicator_value");
+            Elements articles = doc.select("main.home-content " +
+                    "div.offsetMenu " +
+                    "div.container-fluid " +
+                    "div.col-md-23.offset-md-1 " +
+                    "div.home-main " +
+                    "div.home-main_aside " +
+                    "div.home-main_sticky " +
+                    "div.main-indicator " +
+                    "div.main-indicator_value");
             int counter = 0;
             for (Element article : articles) {
                 String linkText = article.text();
@@ -35,7 +43,17 @@ public class CurrencyParset {
                 }
             }
 
-            Elements intRubYestoday = doc.select("main.home-content div.offsetMenu div.container-fluid div.col-md-23.offset-md-1 div.home-main div.home-main_aside div.home-main_sticky div.main-indicator_rates div.main-indicator_rates-table div.main-indicator_rate div.col-md-2.col-xs-9._right.mono-num");
+            Elements intRubYestoday = doc.select("main.home-content " +
+                    "div.offsetMenu " +
+                    "div.container-fluid " +
+                    "div.col-md-23.offset-md-1 " +
+                    "div.home-main " +
+                    "div.home-main_aside " +
+                    "div.home-main_sticky " +
+                    "div.main-indicator_rates " +
+                    "div.main-indicator_rates-table " +
+                    "div.main-indicator_rate " +
+                    "div.col-md-2.col-xs-9._right.mono-num");
             counter = 0;
         for(Element article : intRubYestoday) {
             String linkText = article.text();

@@ -16,23 +16,22 @@ public class MediaMetricsParser {
     public static String fetchLinks() {
         StringBuilder newsLinks = new StringBuilder();
         try {
-            // Отправляем GET-запрос и получаем HTML-документ
             Document doc = Jsoup.connect(URL).get();
 
-            Elements articles = doc.select("main div.layout div.rubric section.main.grid div.rubric_lenta article.uho.rubric_lenta__item.js-article");
+            Elements articles = doc.select("main " +
+                    "div.layout " +
+                    "div.rubric " +
+                    "section.main.grid " +
+                    "div.rubric_lenta " +
+                    "article.uho.rubric_lenta__item.js-article");
 
-            // Проходим по всем найденным элементам <article>
+
             for (Element article : articles) {
-                // Получаем текст ссылки
+
                 String linkText = article.select("h2.uho__name.rubric_lenta__item_name").text();
-
-                // Здесь указываем путь к элементу времени
                 String timeElementPath = "p.uho__tag.rubric_lenta__item_tag.hide_desktop";
-
-                // Получаем время публикации
                 String timeText = article.select(timeElementPath).text();
 
-                // Формируем вывод с временем и ссылкой
                 String lineNews = "*" + timeText + "*\n" + linkText + "\n\n";
                 newsLinks.insert(0, lineNews);
             }

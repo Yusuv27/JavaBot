@@ -10,6 +10,10 @@ public class Logger {
         log.info("[Бот]->[" + chatId + "]\n" + message.getText());
     }
 
+    public static void logScheduler(String text) {
+        log.info("[Бот]->[SCHEDULER]\n" + text);
+    }
+
     public static void logSend(SendMessage message, long chatId, String text) {
         log.info("[Бот]->[" + chatId + "]\n" + message.getText() + "[" + text + "]");
     }
