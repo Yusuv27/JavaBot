@@ -58,6 +58,13 @@ build() {
         exit 1
     fi
 
+    if git status | grep -q "Your branch is up to date with"; then
+        echo "Уже актуально. Завершение скрипта."
+        exit 0
+    else
+        echo "Репозиторий обновлён, продолжаем выполнение..."
+    fi
+
     if [ ! -f "pom.xml" ]; then
         echo "pom.xml не найден. Убедитесь, что вы находитесь в корневой директории проекта."
         exit 1
