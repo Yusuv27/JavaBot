@@ -11,39 +11,36 @@ import java.io.IOException;
 
 public class WeatherParser {
     private static final String URL = "https://www.gismeteo.ru/weather-moscow-4368/19-day/";
+    private static final String mainPath = "main.content.wrap " +
+            "div.content-column " +
+            "section.section.section-content " +
+            "div.widget.widget-weather-parameters.js-dataset.widget-oneday.widget-19-day " +
+            "div.widget-body " +
+            "div.widget-items.js-scroll-item ";
+    private static final String valueTemperaturePath = "div.widget-row-chart.widget-row-chart-temperature-air.row-with-caption " +
+            "div.chart " +
+            "div.values " +
+            "temperature-value"; //value
+
+    private static final String valueTimePath = "div.widget-row.widget-row-datetime-time " +
+            "div.row-item " +
+            "span";
+    private static final String valueTypeWeather = "div.widget-row.widget-row-icon " +
+            "div.row-item"; //data-tooltip
+    private static final String allPathDayToDay = "main.content.wrap " +
+            "div.content-column " +
+            "section.section.section-content.section-bottom-collapse " +
+            "div.weathertabs " +
+            "div.weathertab.is-active " +
+            "div.weathertab-wrap " +
+            "div.date.date-0";
+
 
     public static String fetchLinks() {
         StringBuilder weatherText = new StringBuilder();
         try {
 
             Document doc = Jsoup.connect(URL).get();
-
-            String mainPath = "main.content.wrap " +
-                    "div.content-column " +
-                    "section.section.section-content " +
-                    "div.widget.widget-weather-parameters.js-dataset.widget-oneday.widget-19-day " +
-                    "div.widget-body " +
-                    "div.widget-items.js-scroll-item ";
-
-            String valueTemperaturePath = "div.widget-row-chart.widget-row-chart-temperature-air.row-with-caption " +
-                    "div.chart " +
-                    "div.values " +
-                    "temperature-value"; //value
-
-            String valueTimePath = "div.widget-row.widget-row-datetime-time " +
-                    "div.row-item " +
-                    "span";
-
-            String valueTypeWeather = "div.widget-row.widget-row-icon " +
-                    "div.row-item"; //data-tooltip
-
-            String allPathDayToDay = "main.content.wrap " +
-                    "div.content-column " +
-                    "section.section.section-content.section-bottom-collapse " +
-                    "div.weathertabs " +
-                    "div.weathertab.is-active " +
-                    "div.weathertab-wrap " +
-                    "div.date.date-0";
 
             Elements articlesValeuTemperature = doc.select(mainPath + valueTemperaturePath);
             Elements articlesValueTime = doc.select(mainPath + valueTimePath);

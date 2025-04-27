@@ -12,18 +12,21 @@ import java.io.IOException;
 public class MediaMetricsParser {
 
     private static final String URL = "https://www.kommersant.ru/rubRIc/5";
+    private static final String main = "main " +
+            "div.layout " +
+            "div.rubric " +
+            "section.main.grid " +
+            "div.rubric_lenta " +
+            "article.uho.rubric_lenta__item.js-article";
+    private static final String resource = "Источник: Лента, газета Коммерсант\n\n";
+
 
     public static String fetchLinks() {
         StringBuilder newsLinks = new StringBuilder();
         try {
             Document doc = Jsoup.connect(URL).get();
 
-            Elements articles = doc.select("main " +
-                    "div.layout " +
-                    "div.rubric " +
-                    "section.main.grid " +
-                    "div.rubric_lenta " +
-                    "article.uho.rubric_lenta__item.js-article");
+            Elements articles = doc.select(main);
 
 
             for (Element article : articles) {
@@ -39,7 +42,7 @@ public class MediaMetricsParser {
             e.printStackTrace();
             return "Ошибка при получении данных: " + e.getMessage();
         }
-        String resultText = "Источник: Лента, газета Коммерсант\n\n" + FilterTextNews.filterMediaMetricsParser(newsLinks.toString());
+        String resultText = resource + FilterTextNews.filterMediaMetricsParser(newsLinks.toString());
 
         resultText = ToolsString.limitStringLength(resultText, 3000);
 
