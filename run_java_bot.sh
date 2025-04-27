@@ -59,7 +59,7 @@ build() {
     if [ $? -eq 0 ]; then
         echo -e "${BLUE}[INFO]${RESET}${GREEN} Обновление завершено успешно.${RESET}"
     else
-        echo -e "${RED}[ERROR] Обновление завершилась ошибкой.${RESET}"
+        echo -e "${RED}[ERROR] Обновление завершилось ошибкой.${RESET}"
         exit 1
     fi
 
