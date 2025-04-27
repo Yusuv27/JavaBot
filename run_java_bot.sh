@@ -41,7 +41,7 @@ build() {
     git reset --hard HEAD
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Удаление завершена успешно.${RESET}"
+        echo -e "${GREEN}Удаление завершено успешно.${RESET}"
     else
         echo -e "${RED}Удаление завершилась ошибкой.${RESET}"
         exit 1
@@ -52,9 +52,9 @@ build() {
     git pull
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Обновление завершена успешно.${RESET}"
+        echo -e "${GREEN}Обновление завершено успешно.${RESET}"
     else
-        echo -e "${RED}Удаление завершилась ошибкой.${RESET}"
+        echo -e "${RED}Обновление завершилась ошибкой.${RESET}"
         exit 1
     fi
 
