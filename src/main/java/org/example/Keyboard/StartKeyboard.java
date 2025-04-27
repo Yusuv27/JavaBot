@@ -22,14 +22,17 @@ public class StartKeyboard {
         KeyboardRow row1 = new KeyboardRow();
         KeyboardRow row2 = new KeyboardRow();
         KeyboardRow row3 = new KeyboardRow();
-        row.add("Новости\uD83C\uDF0D");
+        KeyboardRow row4 = new KeyboardRow();
+        row1.add("Новости\uD83C\uDF0D");
         row1.add("Валюта\uD83D\uDCCA");
+        row2.add("Погода☀\uFE0F");
         row2.add("Финансы\uD83D\uDCB0");
         row3.add("Открой сайт");
         keyboard.add(row);
         keyboard.add(row1);
         keyboard.add(row2);
         keyboard.add(row3);
+        keyboard.add(row4);
         replyKeyboardMarkup.setKeyboard(keyboard);
         message.setReplyMarkup(replyKeyboardMarkup);
 

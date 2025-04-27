@@ -1,19 +1,11 @@
 package org.example.Functional;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.Functional.News.MediaMetricsParser;
-import org.example.Functional.News.NewsFetcher;
-import org.example.Functional.Translate.Translate;
+
 import org.example.Log.Logger;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import javax.net.ssl.HttpsURLConnection;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

@@ -1,6 +1,6 @@
 package org.example.Functional.Currency;
 
-import org.example.Functional.News.FilterText.FilterText;
+import org.example.Functional.News.FilterText.FilterTextNews;
 import org.example.Functional.ToolsString.ToolsString;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -60,7 +60,7 @@ public class CurrencyParset {
             e.printStackTrace();
             return "Ошибка при получении данных: " + e.getMessage();
         }
-        String resultText = "Источник: cbr\n\n" + FilterText.filterMediaMetricsParser(newsLinks.toString());
+        String resultText = "Источник: cbr\n\n" + FilterTextNews.filterMediaMetricsParser(newsLinks.toString());
 
         resultText = ToolsString.limitStringLength(resultText, 3000);
 

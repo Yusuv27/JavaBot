@@ -1,6 +1,7 @@
-package org.example.FinanceCalculate;
+package org.example.Functional.FinanceCalculate;
 
 import lombok.extern.java.Log;
+import org.example.Functional.ToolsString.ToolsString;
 import org.example.Log.Logger;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -41,8 +42,7 @@ public class CreditCalculate {
             String responseMessage = String.format(Locale.ENGLISH,
                     "\uD83D\uDCB0Ежемесячный платеж: %.2f\n\uD83D\uDCB3Сумма, которую нужно выплатить: %.2f\n\uD83D\uDCB8Переплата: %.2f",
                     monthlyPayment, totalPayment, overpayment);
-            message.setText(responseMessage);
-            Logger.logSend(message,chatId);
+            ToolsString.addFunc(message, responseMessage, chatId);
         } catch (NumberFormatException e) {
             // Обработка ошибки: неверный формат числа
             message.setText("Ошибка ввода. Убедитесь, что сумма кредита, процент и срок введены правильно.");

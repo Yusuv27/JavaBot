@@ -11,8 +11,8 @@ import java.util.List;
 
 public class SiteButton {
     private static String siteURL = "https://yusuv27.github.io/siteIosif/";
-    private static String sendTextButton = "Вот наш сайт: ";
-    private static String nameButton = "Открыть сайт";
+    private static String sendTextButton = "Нажмите кнопку ниже, чтобы открыть веб-приложение: ";
+    private static String nameButton = "Открыть веб-приложение";
 
 
     public static void siteButton(SendMessage message, long chatId) {

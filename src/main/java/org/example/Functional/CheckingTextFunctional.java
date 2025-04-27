@@ -1,8 +1,8 @@
 package org.example.Functional;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.FinanceCalculate.CreditCalculate;
-import org.example.FinanceCalculate.DepositCalculate;
+import org.example.Functional.FinanceCalculate.CreditCalculate;
+import org.example.Functional.FinanceCalculate.DepositCalculate;
 import org.example.Keyboard.*;
 import org.example.Log.Logger;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -25,6 +25,8 @@ public class CheckingTextFunctional {
             SiteButton.siteButton(message, chatId);
         } else if (messageText.equalsIgnoreCase("Меню")) {
             MenuButton.menuButton(message, chatId);
+        }else if (messageText.equalsIgnoreCase("Погода☀\uFE0F")){
+            WeatherButton.send(message, chatId);
         }else if (messageText.equalsIgnoreCase("Валюта\uD83D\uDCCA")){
             CurrencyButton.send(message, chatId);
         }else if (messageText.equalsIgnoreCase("Финансы\uD83D\uDCB0")){

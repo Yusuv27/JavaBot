@@ -1,6 +1,6 @@
 package org.example.Functional.News;
 
-import org.example.Functional.News.FilterText.FilterText;
+import org.example.Functional.News.FilterText.FilterTextNews;
 import org.example.Functional.ToolsString.ToolsString;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -40,7 +40,7 @@ public class MediaMetricsParser {
             e.printStackTrace();
             return "Ошибка при получении данных: " + e.getMessage();
         }
-        String resultText = "Источник: Лента, газета Коммерсант\n\n" + FilterText.filterMediaMetricsParser(newsLinks.toString());
+        String resultText = "Источник: Лента, газета Коммерсант\n\n" + FilterTextNews.filterMediaMetricsParser(newsLinks.toString());
 
         resultText = ToolsString.limitStringLength(resultText, 3000);
 

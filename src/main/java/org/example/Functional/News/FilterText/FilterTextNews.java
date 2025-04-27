@@ -5,7 +5,7 @@ import java.util.Map;
 
 import static org.example.enumOption.ContentSmile.*;
 
-public class FilterText {
+public class FilterTextNews {
 
     private static final Map<String, String> replacements = new HashMap<>();
 
@@ -56,7 +56,6 @@ public class FilterText {
         for (Map.Entry<String, String> entry : replacements.entrySet()) {
             text = text.replace(entry.getKey(), entry.getValue());
         }
-
 
         return text;
     }

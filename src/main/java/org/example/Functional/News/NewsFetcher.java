@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.example.Functional.News.FilterText.FilterText;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
