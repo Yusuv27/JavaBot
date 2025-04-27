@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Объявление цветов
+RED="\033[31m"     # Красный
+GREEN="\033[32m"   # Зеленый
+YELLOW="\033[33m"  # Желтый
+BLUE="\033[34m"    # Синий
+MAGENTA="\033[35m" # Пурпурный
+CYAN="\033[36m"    # Голубой
+WHITE="\033[37m"   # Белый
+RESET="\033[0m"    # Сброс цвета
+
 JAR_FILE="target/JavaBot-Start-1.0-SNAPSHOT-jar-with-dependencies.jar"
 LOG_FILE="output.log"
 PID_FILE="java-bot.pid"
@@ -27,6 +37,27 @@ install() {
 }
 
 build() {
+    echo "${BLUE}[INFO]${RESET} Удаляем локальное изменение на сервере: применяем git reset --hard HEAD"
+    git reset --hard HEAD
+
+    if [ $? -eq 0 ]; then
+        echo "${GREEN}Удаление завершена успешно.${RESET}"
+    else
+        echo "${RED}Удаление завершилась ошибкой.${RESET}"
+        exit 1
+    fi
+
+    echo "${BLUE}[INFO]${RESET} Обновляем код на сервере: применяем git push"
+
+    git push
+
+    if [ $? -eq 0 ]; then
+        echo "${GREEN}Обновление завершена успешно.${RESET}"
+    else
+        echo "${RED}Удаление завершилась ошибкой.${RESET}"
+        exit 1
+    fi
+
     if [ ! -f "pom.xml" ]; then
         echo "pom.xml не найден. Убедитесь, что вы находитесь в корневой директории проекта."
         exit 1
@@ -36,11 +67,31 @@ build() {
     mvn clean package
 
     if [ $? -eq 0 ]; then
-        echo "Сборка завершена успешно."
+        echo "${GREEN}Сборка завершена успешно.${RESET}"
     else
-        echo "Сборка завершилась с ошибкой."
+        echo "${RED}Сборка завершилась с ошибкой.${RESET}"
         exit 1
     fi
+
+    echo "${BLUE}[INFO]${RESET} Перезапускаем бота"
+    echo "${BLUE}[INFO]${RESET} Останавливаем текущего бота"
+    ./run_java_bot.sh stop
+
+    if [ $? -eq 0 ]; then
+        echo "${GREEN}Бот остановлен успешно.${RESET}"
+    else
+        echo "${RED}Остановка завершилась с ошибкой.${RESET}"
+        exit 1
+    fi
+
+    echo "${BLUE}[INFO]${RESET} Запускаем бота"
+
+        if [ $? -eq 0 ]; then
+            echo "${GREEN}Бот запущен успешно.${RESET}"
+        else
+            echo "${RED}Запуск бота завершился с ошибкой.${RESET}"
+            exit 1
+        fi
 }
 
 start() {
