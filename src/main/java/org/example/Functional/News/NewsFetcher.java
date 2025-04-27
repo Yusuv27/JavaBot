@@ -7,7 +7,7 @@ import java.net.URL;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+//TODO Англоязычное СМИ
 public class NewsFetcher {
     private final String apiKey = "8b1384b6867844deabdbf61a6f5b1144"; // Вставьте здесь ваш API-ключ
     private final String apiUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";

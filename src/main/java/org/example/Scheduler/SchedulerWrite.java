@@ -18,32 +18,31 @@ public class SchedulerWrite implements Runnable {
 
     @Override
     public void run() {
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
 
         scheduler.scheduleAtFixedRate(() -> {
             try {
-                writeToFile(WeatherParser.fetchLinks(),
-                        MediaMetricsParser.fetchLinks(),
-                        CurrencyParset.fetchLinks());
+                writeToFile(WeatherParser.fetchLinks(), WEATHERTXTPATH.getPath(), "Запись weather");
+
             } catch (IOException e) {
                 System.err.println("Ошибка при записи в файл: " + e.getMessage());
             }
-        }, 0, 10, TimeUnit.MINUTES);
+        }, 0, 5, TimeUnit.MINUTES);
+
+        scheduler.scheduleAtFixedRate(() -> {
+            try {
+                writeToFile(MediaMetricsParser.fetchLinks(), NEWSTXTPATH.getPath(), "Запись news");
+                writeToFile(CurrencyParset.fetchLinks(), CURRENCYTXTPATH.getPath(), "Запись currency");
+            } catch (IOException e) {
+                System.err.println("Ошибка при записи в файл: " + e.getMessage());
+            }
+        }, 0, 1, TimeUnit.MINUTES);
     }
 
-    private void writeToFile(String wearther, String news, String currency) throws IOException {
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(WEATHERTXTPATH.getPath()))) {
-            writer.write(wearther);
-            Logger.logScheduler("Запись weather");
-        }
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(NEWSTXTPATH.getPath()))){
-            writer.write(news);
-            Logger.logScheduler("Запись news");
-        }
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(CURRENCYTXTPATH.getPath()))) {
-            writer.write(currency);
-            Logger.logScheduler("Запись currency");
+    private void writeToFile(String text, String path, String log) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+            writer.write(text);
+            Logger.logScheduler(log);
         }
     }
 }
