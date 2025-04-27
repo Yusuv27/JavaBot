@@ -51,18 +51,18 @@ build() {
 
     git pull
 
+    if git status | grep -q "Your branch is up to date with"; then
+        echo "${BLUE}[INFO]${RESET} Код актуальный. Завершение скрипта."
+        exit 0
+    else
+        echo "${BLUE}[INFO]${RESET} Репозиторий обновлён, продолжаем выполнение..."
+    fi
+
     if [ $? -eq 0 ]; then
         echo -e "${BLUE}[INFO]${RESET}${GREEN} Обновление завершено успешно.${RESET}"
     else
         echo -e "${RED}[ERROR] Обновление завершилась ошибкой.${RESET}"
         exit 1
-    fi
-
-    if git status | grep -q "Your branch is up to date with"; then
-        echo "Уже актуально. Завершение скрипта."
-        exit 0
-    else
-        echo "Репозиторий обновлён, продолжаем выполнение..."
     fi
 
     if [ ! -f "pom.xml" ]; then
