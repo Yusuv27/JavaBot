@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Объявление цветов
-RED="\033[31m"     # Красный
-GREEN="\033[32m"   # Зеленый
-YELLOW="\033[33m"  # Желтый
-BLUE="\033[34m"    # Синий
-MAGENTA="\033[35m" # Пурпурный
-CYAN="\033[36m"    # Голубой
-WHITE="\033[37m"   # Белый
-RESET="\033[0m"    # Сброс цвета
+RED="\033[1;31m"     # Красный
+GREEN="\033[1;32m"   # Зеленый
+YELLOW="\033[1;33m"  # Желтый
+BLUE="\033[1;34m"    # Синий
+MAGENTA="\033[1;35m" # Пурпурный
+CYAN="\033[1;36m"    # Голубой
+WHITE="\033[1;37m"   # Белый
+RESET="\033[1;0m"    # Сброс цвета
 
 JAR_FILE="target/JavaBot-Start-1.0-SNAPSHOT-jar-with-dependencies.jar"
 LOG_FILE="output.log"
