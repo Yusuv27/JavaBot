@@ -41,9 +41,9 @@ build() {
     git reset --hard HEAD
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Удаление завершено успешно.${RESET}"
+        echo -e "${BLUE}[INFO]${RESET}${GREEN} Удаление завершено успешно.${RESET}"
     else
-        echo -e "${RED}Удаление завершилась ошибкой.${RESET}"
+        echo -e "${RED}[ERROR] Удаление завершилась ошибкой.${RESET}"
         exit 1
     fi
 
@@ -52,9 +52,9 @@ build() {
     git pull
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Обновление завершено успешно.${RESET}"
+        echo -e "${BLUE}[INFO]${RESET}${GREEN} Обновление завершено успешно.${RESET}"
     else
-        echo -e "${RED}Обновление завершилась ошибкой.${RESET}"
+        echo -e "${RED}[ERROR] Обновление завершилась ошибкой.${RESET}"
         exit 1
     fi
 
@@ -67,9 +67,9 @@ build() {
     mvn clean package
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Сборка завершена успешно.${RESET}"
+        echo -e "${BLUE}[INFO]${RESET}${GREEN} Сборка завершена успешно.${RESET}"
     else
-        echo -e "${RED}Сборка завершилась с ошибкой.${RESET}"
+        echo -e "${RED}[ERROR] Сборка завершилась с ошибкой.${RESET}"
         exit 1
     fi
 
@@ -78,18 +78,18 @@ build() {
     ./run_java_bot.sh stop
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Бот остановлен успешно.${RESET}"
+        echo -e "${BLUE}[INFO]${RESET}${GREEN} Бот остановлен успешно.${RESET}"
     else
-        echo -e "${RED}Остановка завершилась с ошибкой.${RESET}"
+        echo -e "${RED}[ERROR] Остановка завершилась с ошибкой.${RESET}"
         exit 1
     fi
 
     echo -e "${BLUE}[INFO]${RESET} Запускаем бота"
 
         if [ $? -eq 0 ]; then
-            echo -e "${GREEN}Бот запущен успешно.${RESET}"
+            echo -e "${BLUE}[INFO]${RESET}${GREEN} Бот запущен успешно.${RESET}"
         else
-            echo -e "${RED}Запуск бота завершился с ошибкой.${RESET}"
+            echo -e "${RED}[ERROR] Запуск бота завершился с ошибкой.${RESET}"
             exit 1
         fi
 }
