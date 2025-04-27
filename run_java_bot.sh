@@ -37,24 +37,24 @@ install() {
 }
 
 build() {
-    echo "${BLUE}[INFO]${RESET} Удаляем локальное изменение на сервере: применяем git reset --hard HEAD"
+    echo -e "${BLUE}[INFO]${RESET} Удаляем локальное изменение на сервере: применяем git reset --hard HEAD"
     git reset --hard HEAD
 
     if [ $? -eq 0 ]; then
-        echo "${GREEN}Удаление завершена успешно.${RESET}"
+        echo -e "${GREEN}Удаление завершена успешно.${RESET}"
     else
-        echo "${RED}Удаление завершилась ошибкой.${RESET}"
+        echo -e "${RED}Удаление завершилась ошибкой.${RESET}"
         exit 1
     fi
 
-    echo "${BLUE}[INFO]${RESET} Обновляем код на сервере: применяем git pull"
+    echo -e "${BLUE}[INFO]${RESET} Обновляем код на сервере: применяем git pull"
 
     git pull
 
     if [ $? -eq 0 ]; then
-        echo "${GREEN}Обновление завершена успешно.${RESET}"
+        echo -e "${GREEN}Обновление завершена успешно.${RESET}"
     else
-        echo "${RED}Удаление завершилась ошибкой.${RESET}"
+        echo -e "${RED}Удаление завершилась ошибкой.${RESET}"
         exit 1
     fi
 
@@ -67,29 +67,29 @@ build() {
     mvn clean package
 
     if [ $? -eq 0 ]; then
-        echo "${GREEN}Сборка завершена успешно.${RESET}"
+        echo -e "${GREEN}Сборка завершена успешно.${RESET}"
     else
-        echo "${RED}Сборка завершилась с ошибкой.${RESET}"
+        echo -e "${RED}Сборка завершилась с ошибкой.${RESET}"
         exit 1
     fi
 
-    echo "${BLUE}[INFO]${RESET} Перезапускаем бота"
-    echo "${BLUE}[INFO]${RESET} Останавливаем текущего бота"
+    echo -e "${BLUE}[INFO]${RESET} Перезапускаем бота"
+    echo -e "${BLUE}[INFO]${RESET} Останавливаем текущего бота"
     ./run_java_bot.sh stop
 
     if [ $? -eq 0 ]; then
-        echo "${GREEN}Бот остановлен успешно.${RESET}"
+        echo -e "${GREEN}Бот остановлен успешно.${RESET}"
     else
-        echo "${RED}Остановка завершилась с ошибкой.${RESET}"
+        echo -e "${RED}Остановка завершилась с ошибкой.${RESET}"
         exit 1
     fi
 
-    echo "${BLUE}[INFO]${RESET} Запускаем бота"
+    echo -e "${BLUE}[INFO]${RESET} Запускаем бота"
 
         if [ $? -eq 0 ]; then
-            echo "${GREEN}Бот запущен успешно.${RESET}"
+            echo -e "${GREEN}Бот запущен успешно.${RESET}"
         else
-            echo "${RED}Запуск бота завершился с ошибкой.${RESET}"
+            echo -e "${RED}Запуск бота завершился с ошибкой.${RESET}"
             exit 1
         fi
 }
