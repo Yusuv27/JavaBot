@@ -47,9 +47,9 @@ build() {
         exit 1
     fi
 
-    echo "${BLUE}[INFO]${RESET} Обновляем код на сервере: применяем git push"
+    echo "${BLUE}[INFO]${RESET} Обновляем код на сервере: применяем git pull"
 
-    git push
+    git pull
 
     if [ $? -eq 0 ]; then
         echo "${GREEN}Обновление завершена успешно.${RESET}"
