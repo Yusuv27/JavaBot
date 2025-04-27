@@ -28,7 +28,7 @@ public class SchedulerWrite implements Runnable {
             } catch (IOException e) {
                 System.err.println("Ошибка при записи в файл: " + e.getMessage());
             }
-        }, 0, 1, TimeUnit.HOURS);
+        }, 0, 10, TimeUnit.MINUTES);
     }
 
     private void writeToFile(String wearther, String news, String currency) throws IOException {
