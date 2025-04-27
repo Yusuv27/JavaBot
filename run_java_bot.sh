@@ -13,6 +13,8 @@ RESET="\033[1;0m"    # Сброс цвета
 JAR_FILE="target/JavaBot-Start-1.0-SNAPSHOT-jar-with-dependencies.jar"
 LOG_FILE="output.log"
 PID_FILE="java-bot.pid"
+OUTPUT=$(git pull 2>&1)
+
 
 install() {
     # Установка Java
