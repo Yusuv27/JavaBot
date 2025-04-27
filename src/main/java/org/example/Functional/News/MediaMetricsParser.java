@@ -27,13 +27,14 @@ public class MediaMetricsParser {
                 String linkText = article.select("h2.uho__name.rubric_lenta__item_name").text();
 
                 // Здесь указываем путь к элементу времени
-                String timeElementPath = "p.uho__tag.rubric_lenta__item_tag.hide_desktop"; // Замените на ваш селектор для времени, например "time или ".time"
+                String timeElementPath = "p.uho__tag.rubric_lenta__item_tag.hide_desktop";
 
                 // Получаем время публикации
                 String timeText = article.select(timeElementPath).text();
 
                 // Формируем вывод с временем и ссылкой
-                newsLinks.append("*").append(timeText).append("* \n").append(linkText).append(" - ").append("\n");
+                String lineNews = "*" + timeText + "*\n" + linkText + "\n\n";
+                newsLinks.insert(0, lineNews);
             }
         } catch (IOException e) {
             e.printStackTrace();

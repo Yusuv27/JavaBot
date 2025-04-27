@@ -58,8 +58,6 @@ public class FilterText {
         }
 
 
-        text = text.replace(" - \n", "\n\n");
-
         return text;
     }
 }
