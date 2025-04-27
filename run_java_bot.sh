@@ -52,10 +52,8 @@ build() {
     git pull
 
     if git status | grep -q "Your branch is up to date with"; then
-        echo "${BLUE}[INFO]${RESET} Код актуальный. Завершение скрипта."
+        echo -e "${BLUE}[INFO]${RESET} Код актуальный. Завершение скрипта."
         exit 0
-    else
-        echo "${BLUE}[INFO]${RESET} Репозиторий обновлён, продолжаем выполнение..."
     fi
 
     if [ $? -eq 0 ]; then
