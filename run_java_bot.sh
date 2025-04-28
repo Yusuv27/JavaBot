@@ -92,7 +92,7 @@ build() {
     fi
 
     echo -e "${BLUE}[INFO]${RESET} Запускаем бота"
-
+    ./run_java_bot.sh start
         if [ $? -eq 0 ]; then
             echo -e "${BLUE}[INFO]${RESET}${GREEN} Бот запущен успешно.${RESET}"
         else
