@@ -116,10 +116,13 @@ stop() {
     if [ -f "$PID_FILE" ]; then
         kill $(cat "$PID_FILE")
         rm "$PID_FILE"
+        
         echo "JavaBot остановлен."
     else
         echo "JavaBot не запущен."
     fi
+    echo -e ${RES}ЗАПУСКАЮ ПРИНУДИТЕЛЬНУЮ ОСТАНОВКУ ВСЕХ JAVA-ПРИЛОЖЕНИЙ${RESET}
+    pkill -f java
 }
 
 # Проверка аргументов
