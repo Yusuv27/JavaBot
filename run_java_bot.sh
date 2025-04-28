@@ -39,7 +39,7 @@ install() {
 }
 
 build() {
-    echo -e "${BLUE}[INFO]${RESET} {WHITE}Удаляем локальное изменение на сервере: применяем git reset --hard HEAD{RESET}"
+    echo -e "${BLUE}[INFO]${RESET} ${WHITE}Удаляем локальное изменение на сервере: применяем git reset --hard HEAD${RESET}"
     git reset --hard HEAD
 
     if [ $? -eq 0 ]; then
@@ -49,12 +49,12 @@ build() {
         exit 1
     fi
 
-    echo -e "${BLUE}[INFO]${RESET} {WHITE}Обновляем код на сервере: применяем git pull{RESET}"
+    echo -e "${BLUE}[INFO]${RESET} ${WHITE}Обновляем код на сервере: применяем git pull${RESET}"
 
     git pull
 
     if echo "$OUTPUT" | grep -q "Already up to date."; then
-        echo -e "${BLUE}[INFO]${RESET} {GREEN}Код актуальный. Завершение скрипта.{RESET}"
+        echo -e "${BLUE}[INFO]${RESET} ${GREEN}Код актуальный. Завершение скрипта.${RESET}"
         exit 0
     fi
 
