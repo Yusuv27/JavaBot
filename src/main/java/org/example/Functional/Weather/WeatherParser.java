@@ -10,7 +10,8 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class WeatherParser {
-    private static final String URL = "https://www.gismeteo.ru/weather-moscow-4368/19-day/";
+    //private static final String URL = "https://www.gismeteo.ru/weather-moscow-4368/19-day/";
+    private static final String URL = "https://www.gismeteo.ru/weather-moscow-4368/";
     private static final String mainPath = "main.content.wrap " +
             "div.content-column " +
             "section.section.section-content " +
