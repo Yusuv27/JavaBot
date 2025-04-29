@@ -15,7 +15,7 @@ public class WeatherParser {
     private static final String mainPath = "main.content.wrap " +
             "div.content-column " +
             "section.section.section-content " +
-            "div.widget.widget-weather-parameters.js-dataset.widget-oneday.widget-19-day " +
+            "div.widget.widget-weather-parameters.js-dataset.widget-oneday.widget-today " +
             "div.widget-body " +
             "div.widget-items.js-scroll-item ";
     private static final String valueTemperaturePath = "div.widget-row-chart.widget-row-chart-temperature-air.row-with-caption " +
