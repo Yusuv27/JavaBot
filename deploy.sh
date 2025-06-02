@@ -12,6 +12,7 @@ mvn clean package
 docker build -t infobot .
 
 # Запустить контейнер в фоне, удалить после остановки
-docker run -d --rm infobot
+docker run -d --rm --network host infobot
+
 # Показать запущенные контейнеры
 docker ps
