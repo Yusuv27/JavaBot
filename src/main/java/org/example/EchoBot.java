@@ -39,7 +39,7 @@ public class EchoBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "JavaCoffee"; // Укажите имя вашего бота
+        return "JavaCoffee"; 
     }
 
     @Override
